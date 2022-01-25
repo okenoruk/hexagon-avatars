@@ -12,4 +12,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  fileUploaded(ev: any) {
+    console.log('file', ev);
+  }
 }

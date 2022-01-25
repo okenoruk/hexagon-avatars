@@ -25,7 +25,7 @@
 <h2>Upload</h2>
 <p>Upload your screenshoted NFT:</p>
 
-<app-upload-images></app-upload-images>
+<app-upload-images (callbackChange)="fileUploaded($event)"></app-upload-images>
 
 <!-- Next Steps -->
 <h2>Adjust</h2>
