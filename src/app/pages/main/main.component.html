@@ -41,13 +41,17 @@
 <div [hidden]="croppedImage === ''">
   <mat-grid-list gutterSize="30" cols="3" rowHeight="1:1">
     <mat-grid-tile>
-      <a (click)="downloadImage()">Download</a>
+      <button (click)="downloadImage()" mat-raised-button color="primary">
+        <mat-icon>download</mat-icon>Download
+      </button>
     </mat-grid-tile>
     <mat-grid-tile>
       <strong>OR</strong>
     </mat-grid-tile>
     <mat-grid-tile>
-      Set as Avatar
+      <button (click)="downloadImage()" mat-raised-button color="twitter">
+        <span class="iconify" data-icon="mdi:twitter" data-width="24" data-height="24"></span> Set as Avatar
+      </button>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
