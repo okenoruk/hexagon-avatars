@@ -35,6 +35,23 @@
   </mat-grid-list>
 </div>
 
+<!-- Next Steps -->
+<h2>Publish</h2>
+
+<div [hidden]="croppedImage === ''">
+  <mat-grid-list gutterSize="30" cols="3" rowHeight="1:1">
+    <mat-grid-tile>
+      <a (click)="downloadImage()">Download</a>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <strong>OR</strong>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      Set as Avatar
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
 <!-- Terminal -->
 <!--<div class="terminal" [ngSwitch]="selection.value">-->
 <!--  <pre *ngSwitchDefault>ng generate component xyz</pre>-->

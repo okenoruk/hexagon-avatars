@@ -36,15 +36,17 @@ export class MainComponent implements OnInit, AfterViewInit {
     if (this.croppedImage !== image) {
       this.croppedImage = image;
       const img = new Image();
+      const canvasWidth = this.canvasElement.nativeElement.width;
+      const canvasHeight = this.canvasElement.nativeElement.height;
       img.onload = () => {
         if (this.context) {
           this.context.globalCompositeOperation = '';
-          this.context.clearRect(0, 0, this.canvasElement.nativeElement.width, this.canvasElement.nativeElement.height);
+          this.context.clearRect(0, 0, canvasWidth, canvasHeight);
           this.context.beginPath();
 
-          const hexa = new Image(300, 300);
+          const hexa = new Image(canvasWidth, canvasHeight);
           hexa.src = '/assets/images/img.png';
-          this.context.drawImage(img, 0, 0, 300, 300);
+          this.context.drawImage(img, 0, 0, canvasWidth, canvasHeight);
           setTimeout(() => {
             if (this.context) {
               this.context.globalCompositeOperation = "destination-atop";
@@ -55,5 +57,12 @@ export class MainComponent implements OnInit, AfterViewInit {
       };
       img.src = this.croppedImage;
     }
+  }
+
+  downloadImage() {
+    const link = document.createElement('a');
+    link.download = this.imageChangedEvent.target.files[0].name;
+    link.href = this.canvasElement.nativeElement.toDataURL()
+    link.click();
   }
 }
