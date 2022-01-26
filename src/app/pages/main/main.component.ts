@@ -8,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
 export class MainComponent implements OnInit {
   title = 'profilepicture';
   imageChangedEvent: any;
+  croppedImage = '';
 
   constructor() { }
 
@@ -16,5 +17,10 @@ export class MainComponent implements OnInit {
 
   fileUploaded(ev: any) {
     this.imageChangedEvent = ev;
+  }
+
+  imageCropped(image: string) {
+    console.log(image);
+    this.croppedImage = image;
   }
 }

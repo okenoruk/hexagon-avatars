@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from "@angular/core";
+import { AfterViewInit, Component, EventEmitter, Input, Output } from "@angular/core";
 import { ImageCroppedEvent, LoadedImage } from "ngx-image-cropper";
 
 @Component({
@@ -9,6 +9,7 @@ import { ImageCroppedEvent, LoadedImage } from "ngx-image-cropper";
 export class ImageCropperComponent implements AfterViewInit {
   @Input() imageChangedEvent: any = '';
   croppedImage: any = '';
+  @Output() callbackEvent = new EventEmitter<string>();
 
   ngAfterViewInit() {
   }
@@ -19,6 +20,7 @@ export class ImageCropperComponent implements AfterViewInit {
 
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
+    this.callbackEvent.emit(this.croppedImage);
   }
 
   imageLoaded(image?: LoadedImage) {

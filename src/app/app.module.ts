@@ -13,6 +13,7 @@ import { CustomMaterialModule } from "./components/custom-material.module";
 import { ImageCropperModule } from "ngx-image-cropper";
 import { ImageCropperComponent } from "./components/image-cropper/image-cropper.component";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { FooterComponent } from "./components/footer/footer.component";
 
 const routes: Routes = [
   {
@@ -40,7 +41,8 @@ const routes: Routes = [
     MainComponent,
     ToolbarComponent,
     UploadImagesComponent,
-    ImageCropperComponent
+    ImageCropperComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
