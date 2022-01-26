@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { FileUploadService } from "../../services/file-upload.service";
+import { TwitterApiService } from "../../services/twitter-api.service";
 
 @Component({
   selector: 'app-main',
@@ -15,7 +16,8 @@ export class MainComponent implements OnInit, AfterViewInit {
   context: CanvasRenderingContext2D | null | undefined;
 
   constructor(
-    private fileUploadSvc: FileUploadService
+    private fileUploadSvc: FileUploadService,
+    private twitter: TwitterApiService
   ) { }
 
   ngOnInit(): void {
@@ -64,5 +66,11 @@ export class MainComponent implements OnInit, AfterViewInit {
     link.download = this.imageChangedEvent.target.files[0].name;
     link.href = this.canvasElement.nativeElement.toDataURL()
     link.click();
+  }
+
+  setAsProfileImage() {
+    this.twitter.request().then((result) => {
+      console.log(result);
+    })
   }
 }
