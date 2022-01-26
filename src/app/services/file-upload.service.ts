@@ -26,4 +26,14 @@ export class FileUploadService {
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseUrl}/files`);
   }
+
+  convertBlobToBase64 = (blob: Blob): any =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.readAsDataURL(blob);
+    });
 }

@@ -23,14 +23,17 @@
 <input type="hidden" #selection>
 
 
-<mat-grid-list gutterSize="30" cols="2" rowHeight="1:1" *ngIf="imageChangedEvent">
-  <mat-grid-tile>
-    <app-image-cropper (callbackEvent)="imageCropped($event)" [imageChangedEvent]="imageChangedEvent"></app-image-cropper>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <img [src]="croppedImage" alt="cropped image" width="300px" height="300px">
-  </mat-grid-tile>
-</mat-grid-list>
+<div [hidden]="croppedImage === ''">
+  <mat-grid-list gutterSize="30" cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <app-image-cropper (callbackEvent)="imageCropped($event)" [imageChangedEvent]="imageChangedEvent"></app-image-cropper>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <!--    <img [src]="croppedImage" alt="cropped image" width="300px" height="300px">-->
+      <canvas #canvasElement width="300px" height="300px"></canvas>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
 
 <!-- Terminal -->
 <!--<div class="terminal" [ngSwitch]="selection.value">-->

@@ -39,7 +39,6 @@ export class UploadImagesComponent implements OnInit {
           const reader = new FileReader();
 
           reader.onload = (e: any) => {
-            console.log(e.target.result);
             this.progressInfos[i].value = Math.round(
               (100 * e.loaded) / e.total
             );
