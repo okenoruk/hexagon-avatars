@@ -26,32 +26,34 @@ export class UploadImagesComponent implements OnInit {
   }
 
   selectFiles(event: any): void {
-    this.message = [];
-    this.progressInfos = [];
-    this.selectedFileNames = [];
     this.selectedFiles = event.target.files;
 
-    this.previews = [];
-    if (this.selectedFiles && this.selectedFiles[0]) {
-      const numberOfFiles = this.selectedFiles.length;
-      for (let i = 0; i < numberOfFiles; i++) {
-        const reader = new FileReader();
+    if (this.selectedFiles && this.selectedFiles?.length > 0) {
+      this.message = [];
+      this.progressInfos = [];
+      this.selectedFileNames = [];
+      this.previews = [];
+      if (this.selectedFiles && this.selectedFiles[0]) {
+        const numberOfFiles = this.selectedFiles.length;
+        for (let i = 0; i < numberOfFiles; i++) {
+          const reader = new FileReader();
 
-        reader.onload = (e: any) => {
-          console.log(e.target.result);
-          this.progressInfos[i].value = Math.round(
-            (100 * e.loaded) / e.total
-          );
-          this.previews.push(e.target.result);
-        };
+          reader.onload = (e: any) => {
+            console.log(e.target.result);
+            this.progressInfos[i].value = Math.round(
+              (100 * e.loaded) / e.total
+            );
+            this.previews.push(e.target.result);
+          };
 
-        reader.readAsDataURL(this.selectedFiles[i]);
+          reader.readAsDataURL(this.selectedFiles[i]);
 
-        this.selectedFileNames.push(this.selectedFiles[i].name);
-        this.progressInfos[i] = { value: 0, fileName: this.selectedFiles[i].name };
+          this.selectedFileNames.push(this.selectedFiles[i].name);
+          this.progressInfos[i] = { value: 0, fileName: this.selectedFiles[i].name };
+        }
       }
-    }
 
-    this.callbackChange.emit(event);
+      this.callbackChange.emit(event);
+    }
   }
 }

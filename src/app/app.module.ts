@@ -10,6 +10,9 @@ import { UploadImagesComponent } from "./components/upload-images/upload-images.
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { CustomMaterialModule } from "./components/custom-material.module";
+import { ImageCropperModule } from "ngx-image-cropper";
+import { ImageCropperComponent } from "./components/image-cropper/image-cropper.component";
+import { MatGridListModule } from "@angular/material/grid-list";
 
 const routes: Routes = [
   {
@@ -36,7 +39,8 @@ const routes: Routes = [
     AppComponent,
     MainComponent,
     ToolbarComponent,
-    UploadImagesComponent
+    UploadImagesComponent,
+    ImageCropperComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,9 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ImageCropperModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

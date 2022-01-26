@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class MainComponent implements OnInit {
   title = 'profilepicture';
+  imageChangedEvent: any;
 
   constructor() { }
 
@@ -14,6 +15,6 @@ export class MainComponent implements OnInit {
   }
 
   fileUploaded(ev: any) {
-    console.log('file', ev);
+    this.imageChangedEvent = ev;
   }
 }

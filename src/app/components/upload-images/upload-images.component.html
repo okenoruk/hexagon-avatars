@@ -12,7 +12,7 @@
 <mat-form-field>
   <div>
     <mat-toolbar>
-      <input matInput [value]="selectedFileNames.length ? selectedFileNames : 'Select Images'" />
+      <input matInput placeholder="Select Images" [value]="selectedFileNames" />
 
       <button
         mat-flat-button
@@ -24,11 +24,13 @@
     </mat-toolbar>
 
     <input
+      style="width: 100%"
       #fileInput
       type="file"
       id="fileInput"
       name="fileInput"
       accept="image/*"
+      [multiple]="false"
       (change)="selectFiles($event)"
     />
   </div>
