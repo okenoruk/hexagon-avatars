@@ -17,10 +17,6 @@ import { FooterComponent } from "./components/footer/footer.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: AppComponent
-  },
-  {
     path: 'index',
     component: MainComponent
   },
@@ -28,11 +24,11 @@ const routes: Routes = [
   //   path: 'preview',
   //   loadChildren: () => import ('./main/pages/preview/preview.module').then(m => m.PreviewModule)
   // },
-  // {
-  //   path: '',
-  //   redirectTo: 'login',
-  //   pathMatch: 'full'
-  // }
+  {
+    path: '',
+    redirectTo: 'index',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

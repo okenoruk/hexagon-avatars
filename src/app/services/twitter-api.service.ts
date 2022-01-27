@@ -26,8 +26,12 @@ export class TwitterApiService {
     return new Promise<any>((resolve) => {
       const header: HttpHeaders = new HttpHeaders();
       header.append('authorization', `Bearer ${environment.BEARER_TOKEN}`);
-
-      this.http.post(this.endpoint, this.params, {headers: header}).subscribe((result) => {
+      header.append('Content-Type', 'application/json');
+      const httpOptions = {
+        withCredentials: true,
+        headers: header
+      }
+      this.http.post(this.endpoint, this.params, httpOptions).subscribe((result) => {
         resolve(result);
       });
     })

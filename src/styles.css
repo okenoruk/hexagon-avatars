@@ -131,7 +131,8 @@ svg.material-icons:not(:last-child) {
 }
 
 .card.card.highlight-card span {
-  margin-left: 60px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 svg#rocket {

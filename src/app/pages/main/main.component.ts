@@ -53,6 +53,7 @@ export class MainComponent implements OnInit, AfterViewInit {
             if (this.context) {
               this.context.globalCompositeOperation = "destination-atop";
               this.context.drawImage(hexa,0,0,hexa.width,hexa.height);
+              this.context.canvas.style.width = '100%';
             }
           }, 50);
         }
